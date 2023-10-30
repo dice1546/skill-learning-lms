@@ -81,6 +81,17 @@ body,
   }
 }
 
+@layer components {
+  .infoText {
+    @apply p-4 bg-gray-200/50 rounded-lg max-w-[300px]
+  }
+
+  .chatRow {
+    @apply rounded-lg px-5 py-3 text-sm flex items-center justify-center space-x-2
+     hover:bg-gray-200/20 cursor-pointer text-slate-700 transition-all duration-200 ease-out
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

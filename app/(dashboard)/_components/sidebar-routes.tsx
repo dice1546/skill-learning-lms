@@ -19,7 +19,7 @@ const guestRoutes = [
   {
     icon: MessageCircle,
     label: "Study with AI",
-    href: "/chatbot",
+    href: "/chatbot/chat",
   }
 ];
 
