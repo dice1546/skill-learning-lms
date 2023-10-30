@@ -11,9 +11,9 @@ const ChatPage = () => {
                     <h2>Examples</h2>
                 </div>
                 <div className="space-y-2">
-                    <p className="infoText">"Explain Somthing to me"</p>
-                    <p className="infoText">"What is the difference between a dog and a cat?"</p>
-                    <p className="infoText">"What is the color of the sun?"</p>
+                    <p className="infoText">&quot;Explain Something to me&quot;</p>
+                    <p className="infoText">&quot;What is the difference between a dog and a cat?&quot;</p>
+                    <p className="infoText">&quot;What is the color of the sun?&quot;</p>
                 </div>
             </div>
             <div>
