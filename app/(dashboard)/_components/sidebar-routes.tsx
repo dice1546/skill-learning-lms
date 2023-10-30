@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Compass, Layout, List } from "lucide-react";
+import { BarChart, Compass, Layout, List, MessageCircle } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SidebarItem } from "./sidebar-item";
@@ -16,6 +16,11 @@ const guestRoutes = [
     label: "Browse",
     href: "/search",
   },
+  {
+    icon: MessageCircle,
+    label: "Study with AI",
+    href: "/chatbot",
+  }
 ];
 
 const teacherRoutes = [
