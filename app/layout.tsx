@@ -7,9 +7,10 @@ import { ConfettiProvider } from '@/components/providers/confetti-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
-  title: 'SVDP Digital Training Center',
-  description: 'Learning in demand skills!',
+  title: 'SkillUstad - Learn Digital Skills',
+  description: 'Learn the most demanded skills that can change your life',
 }
 
 export default function RootLayout({
@@ -29,3 +30,4 @@ export default function RootLayout({
     </ClerkProvider>
   )
 }
+

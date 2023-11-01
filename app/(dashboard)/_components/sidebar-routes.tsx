@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Compass, Layout, List, MessageCircle } from "lucide-react";
+import { BarChart, Compass, GraduationCap, Layout, List, Mail, MessageCircle, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SidebarItem } from "./sidebar-item";
@@ -19,8 +19,18 @@ const guestRoutes = [
   {
     icon: MessageCircle,
     label: "Study with AI",
-    href: "/chatbot/chat",
-  }
+    href: "/chat",
+  },
+  {
+    icon: TrendingUp,
+    label: "Career",
+    href: "/career",
+  },
+  {
+    icon: GraduationCap,
+    label: "Certifications",
+    href: "/certify",
+  },
 ];
 
 const teacherRoutes = [
@@ -33,6 +43,16 @@ const teacherRoutes = [
     icon: BarChart,
     label: "Analytics",
     href: "/teacher/analytics",
+  },
+  {
+    icon: Mail,
+    label: "Student Queries",
+    href: "/teacher/queries",
+  },
+  {
+    icon: MessageCircle,
+    label: "Build with AI",
+    href: "/teacher/skillbot",
   },
 ]
 
