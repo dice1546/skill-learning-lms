@@ -2,8 +2,6 @@
 import { Toaster } from 'react-hot-toast';
 import { Providers } from '@/components/provider';
 import { Header } from '@/components/chatbot/header';
-import { cn } from '@/lib/utils';
-import { fontMono, fontSans } from '@/lib/fonts';
 import { TailwindIndicator } from '@/components/chatbot/tailwind-indicator';
 
 interface RootLayoutProps {
