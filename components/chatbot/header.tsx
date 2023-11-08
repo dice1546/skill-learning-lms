@@ -16,7 +16,6 @@ import {
 import { SidebarFooter } from './sidebar-footer' 
 import { ThemeToggle } from './theme-toggle'
 import { ClearHistory } from './clear-history' 
-import { UserMenu } from './user-menu' 
 import { NextRequest } from 'next/server';
 import { getAuth } from '@clerk/nextjs/server';
 // import { LoginButton } from '@/components/login-button'
