@@ -6,8 +6,7 @@ import { TailwindIndicator } from '@/components/chatbot/tailwind-indicator';
 
 interface RootLayoutProps {
 	children: React.ReactNode
-  }
-  
+}
 
 const ChatLayout = ({ children }: RootLayoutProps) => {
 	return (
