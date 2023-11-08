@@ -1,5 +1,4 @@
-import { ImageResponse } from 'next/server'
-
+import { ImageResponse } from 'next/og'
 import { getSharedChat } from '@/actions/chat-actions' 
 
 export const runtime = 'edge'
@@ -14,11 +13,11 @@ export const size = {
 export const contentType = 'image/png'
 
 const interRegular = fetch(
-  new URL('../../../assets/fonts/Inter-Regular.woff', import.meta.url)
+  new URL('../../../../../assets/fonts/Inter-Regular.woff', import.meta.url)
 ).then(res => res.arrayBuffer())
 
 const interBold = fetch(
-  new URL('../../../assets/fonts/Inter-Bold.woff', import.meta.url)
+  new URL('../../../../../assets/fonts/Inter-Bold.woff', import.meta.url)
 ).then(res => res.arrayBuffer())
 
 interface ImageProps {
