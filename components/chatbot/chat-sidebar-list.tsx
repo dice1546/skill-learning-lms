@@ -1,38 +1,71 @@
-import { SidebarActions } from './sidebar-actions'
-import { SidebarItem } from './sidebar-item'
-import { getChats } from '@/actions/chat-actions' 
-import { removeChat } from '@/actions/chat-actions' 
-import { shareChat } from '@/actions/chat-actions' 
+import { database } from '@/firebase';
+import { useUser } from '@clerk/nextjs';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { collection, deleteDoc, doc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { MessageSquare, Trash } from 'lucide-react';
+import Link from 'next/link';
+import { Separator } from '../ui/separator';
 
 export interface SidebarListProps {
-  userId?: string
+	id: string;
 }
 
-export async function SidebarList({ userId }: SidebarListProps) {
-  const chats = await getChats(userId)
+export function SidebarList({ id }: SidebarListProps) {
+	// const chats = await getChats(userId)
+	const [active, setActive] = useState(false);
+	const pathName = usePathname();
+	const router = useRouter();
+	const { isLoaded, isSignedIn, user } = useUser();
+	if (!isLoaded || !isSignedIn || !user) {
+		return null;
+	}
+	const [messages] = useCollection(
+		collection(
+			database,
+			'users',
+			user?.primaryEmailAddress?.emailAddress!,
+			'chats',
+			id,
+			'messages'
+		)
+	);
 
-  return (
-    <div className="flex-1 overflow-auto">
-      {chats?.length ? (
-        <div className="space-y-2 px-2">
-          {chats.map(
-            chat =>
-              chat && (
-                <SidebarItem key={chat?.id} chat={chat}>
-                  <SidebarActions
-                    chat={chat}
-                    removeChat={removeChat}
-                    shareChat={shareChat}
-                  />
-                </SidebarItem>
-              )
-          )}
-        </div>
-      ) : (
-        <div className="p-8 text-center">
-          <p className="text-sm text-muted-foreground">No chat history</p>
-        </div>
-      )}
-    </div>
-  )
+	useEffect(() => {
+		if (!pathName) return;
+		setActive(pathName.includes(id));
+	}, [pathName]);
+
+	const removeChat = async () => {
+		await deleteDoc(
+			doc(
+				database,
+				'users',
+				user?.primaryEmailAddress?.emailAddress!,
+				'chats',
+				id
+			)
+		);
+		router.replace('/dashboard/chat');
+	};
+
+	return (
+		<div>
+			<Link
+				href={`/dashboard/chat/${id}`}
+				className={`chatRow justify-center ${active && 'bg-blue-200/90'}`}
+			>
+				<MessageSquare className='h-5 w-5 text-sky-700' />
+				<p className='flex-1 hidden md:inline-flex truncate'>
+					{messages?.docs[messages?.docs.length - 1]?.data().text || 'New Chat'}
+				</p>
+				<Trash
+					onClick={removeChat}
+					className='h-5 w-5 text-sky-700 hover:text-red-700'
+				/>
+			</Link>
+			<Separator />
+		</div>
+	);
 }

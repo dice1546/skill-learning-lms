@@ -8,27 +8,71 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger
+  
 } from '@/components/ui/tooltip'
 import { useEnterSubmit } from '@/hooks/use-enter-submit' 
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
+import { useUser } from '@clerk/nextjs';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import {database} from "@/firebase";
 
 export interface PromptProps
   extends Pick<UseChatHelpers, 'input' | 'setInput'> {
   onSubmit: (value: string) => Promise<void>
   isLoading: boolean
+  id: string,
 }
+
 
 export function PromptForm({
   onSubmit,
   input,
   setInput,
-  isLoading
+  isLoading,
+  id,
 }: PromptProps) {
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
   const router = useRouter()
+  const { isLoaded, isSignedIn, user } = useUser();
 
+  const createNewChat = async () => {
+		const doc = await addDoc(
+			collection(
+				database,
+				'users',
+				user?.primaryEmailAddress?.emailAddress!,
+				'chats'
+			),
+			{
+				userId: user?.primaryEmailAddress?.emailAddress!,
+				createdAt: serverTimestamp(),
+			}
+		);
+	};
+  const addDocMessage = async () => {
+    const message: Message = {
+      text: input,
+      createdAt: serverTimestamp(),
+      user: {
+        _id: user?.primaryEmailAddress?.emailAddress!,
+        name: user?.fullName!,
+        avatar: user?.imageUrl || `https://ui-avatars.com/api/?name=${user?.fullName}`,
+      },
+    }
+    const document = await addDoc(
+      collection(
+        database,
+        "users",
+        user?.primaryEmailAddress?.emailAddress!,
+        "chats",
+        id,
+        "messages",
+      ),
+      message
+    )
+  }
   React.useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus()
@@ -38,6 +82,8 @@ export function PromptForm({
   return (
     <form
       onSubmit={async e => {
+        createNewChat(),
+        addDocMessage(),
         e.preventDefault()
         if (!input?.trim()) {
           return
@@ -53,6 +99,7 @@ export function PromptForm({
             <button
               onClick={e => {
                 e.preventDefault()
+                createNewChat()
                 router.refresh()
                 router.push('/dashboard/chat')
               }}
@@ -75,7 +122,7 @@ export function PromptForm({
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Send a message."
-          spellCheck={false}
+          spellCheck={true}
           className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
         />
         <div className="absolute right-0 top-4 sm:right-4">

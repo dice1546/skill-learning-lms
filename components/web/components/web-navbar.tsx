@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import styles from '@/styles';
-import { navVariants } from '@/lib/motion'; 
+import { navVariants } from '@/lib/motion';
 import Link from 'next/link';
 import { useState } from 'react';
-// import { close } from '../public';
-// import { menu } from '../public';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 const WebNavbar = () => {
 	const [toggle, setToggle] = useState(false);
@@ -16,71 +17,106 @@ const WebNavbar = () => {
 			variants={navVariants}
 			initial='hidden'
 			whileInView='show'
-			className={`${styles.xPaddings} py-0 relative`}
+			className={`${styles.xPaddings} relative`}
 		>
-			<div className='absolute w-[50%] inset-0 gradient-01' />
-			<div
-				className={`${styles.innerWidth} mx-auto flex justify-between gap-10`}
-			>
+			<div className='max-w-screen-xl px-4 w-full mx-auto flex justify-between gap-10'>
 				<Link href='/'>
 					<img
 						src='/skillustad.png'
 						alt='search'
-						className='w-[200px] h-[100px] z-50 cursor-pointer object-contain'
+						className='w-[200px] h-[90px] md:w-[200px] md:h-[90px] mt-3 z-50 cursor-pointer object-contain'
 					/>
 				</Link>
 				<motion.ul
-					className={`list-none sm:flex hidden justify-end items-center flex-1 `}
+					className={`list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1 `}
 				>
+					<Link href='/'>
+						<Button variant='ghost'>Home</Button>
+					</Link>
+					<Link href='/about'>
+						<Button variant='ghost'>
+							About Us
+						</Button>
+					</Link>
 					<Link
 						href='/'
-						className='font-poppins font-medium cursor-pointer sm:text-[15px] text-[15px] lg:text-[15px] px-5 py-2 rounded-lg text-black transition-colors hover:text-black duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
 					>
-						Home
+						<Button variant='ghost'>
+							Courses
+						</Button>
 					</Link>
 					<Link
-						href='/projects'
-						className='font-poppins font-medium cursor-pointer sm:text-[15px] text-[15px] lg:text-[15px] px-5 py-2 rounded-lg text-black transition-colors hover:text-black duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
+						href='/'
 					>
-						Projects
+						<Button variant='ghost'>
+							Prices
+						</Button>
 					</Link>
 					<Link
-						href='/contact'
-						className='font-poppins font-medium cursor-pointer sm:text-[15px] text-[15px] lg:text-[15px] px-5 py-2 rounded-lg text-black transition-colors hover:text-black duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
+						href='/'
 					>
-						Contact Us
+						<Button variant='ghost'>
+							Contact
+						</Button>
+					</Link>
+					<Link href='/dashboard' className='ml-3 mr-3'>
+						<Button variant='outline'>Log in</Button>
+					</Link>
+					<Link href='/dashboard'>
+						<Button variant='default'>Sign Up</Button>
 					</Link>
 				</motion.ul>
 				<div className='sm:hidden flex flex-1 justify-end items-center'>
-					<img
+					<Image
 						src={toggle ? '/close.svg' : '/menu.svg'}
 						alt='menu'
-						className='w-[24px] h-[24px] object-contain'
+						width={24}
+						height={24}
 						onClick={() => setToggle((prev) => !prev)}
 					/>
 					<div
 						className={`${
 							toggle ? 'flex' : 'hidden'
-						} p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[180px] rounded-2xl z-30 shadow-2xl border-2 border-gray sidebar`}
+						} p-16 bg-white absolute top-20 right-0 mx-4 my-2 min-w-[180px] rounded-2xl z-30 shadow-2xl border-2 border-gray sidebar`}
 					>
 						<ul className='list-none flex flex-col justify-end items-center flex-1'>
-							<Link
-								href='/'
-								className='font-poppins font-medium cursor-pointer text-[20px] px-4 py-2 rounded-lg text-white hover:text-black transition-colors duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
-							>
-								Home
+							<Link href='/'>
+								<Button variant='ghost' className='mb-2'>
+									Home
+								</Button>
 							</Link>
-							<Link
-								href='/projects'
-								className='font-poppins font-medium cursor-pointer text-[20px] px-4 py-2 rounded-lg text-white hover:text-black transition-colors duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
-							>
-								Projects
+							<Separator />
+
+							<Link href='/about'>
+								<Button variant='ghost' className='mb-2 mt-2'>
+									About Us
+								</Button>
 							</Link>
-							<Link
-								href='/contact'
-								className='font-poppins font-medium cursor-pointer text-[20px] px-4 py-2 rounded-lg text-white hover:text-black transition-colors duration-300 hover:bg-gradient-to-r from-red-500 to-yellow-500'
-							>
-								Contact
+							<Separator />
+							<Link href='/contact'>
+								<Button variant='ghost' className='mb-2 mt-2'>
+									Courses
+								</Button>
+							</Link>
+							<Separator />
+							<Link href='/contact'>
+								<Button variant='ghost' className='mb-2 mt-2'>
+									Prices
+								</Button>
+							</Link>
+							<Separator />
+							<Link href='/contact'>
+								<Button variant='ghost' className='mb-2 mt-2'>
+									Contact
+								</Button>
+							</Link>
+							<Separator />
+							<Link href='/dashboard' className='mt-3 mb-3'>
+								<Button variant='outline'>Log in</Button>
+							</Link>
+							<Separator />
+							<Link href='/dashboard' className='mt-3'>
+								<Button variant='default'>Sign Up</Button>
 							</Link>
 						</ul>
 					</div>
