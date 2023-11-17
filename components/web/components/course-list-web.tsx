@@ -57,7 +57,7 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 				</div>
 			)}
             <div className='flex justify-center items-center mt-8'>
-				<Link href="/courses">
+				<Link href="/learning">
                 <Button variant="default">
                     View all Courses
                 </Button>
