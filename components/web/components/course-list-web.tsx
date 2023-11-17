@@ -1,22 +1,23 @@
 "use client";
+
 import { Category, Course } from '@prisma/client';
 import {  fadeIn, staggerContainer } from "@/lib/motion";
 import { motion } from 'framer-motion';
-import { CourseCard } from '@/components/course-card';
 import { Button } from '@/components/ui/button';
 import { TypingText } from './custom-text';
+import { WebCourseCard } from './course-card-web';
+import Link from 'next/link';
 
-type CourseWithProgressWithCategory = Course & {
+type CourseWithCategory = Course & {
 	category: Category | null;
 	chapters: { id: string }[];
-	progress: number | null;
-};
+  };
 
-interface CoursesListProps {
-	items: CourseWithProgressWithCategory[];
+interface WebCoursesListProps {
+	coursesItems: CourseWithCategory[];
 }
 
-export const CoursesListWeb = ({ items }: CoursesListProps) => {
+export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 	return (
 		<motion.div
 			variants={staggerContainer(0.1, 1)}
@@ -38,28 +39,29 @@ export const CoursesListWeb = ({ items }: CoursesListProps) => {
 			<motion.div 
             variants={fadeIn('right', 'tween', 0.3, 0.8)}
             className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4'>
-				{items.map((item) => (
-					<CourseCard
+				{coursesItems.map((item) => (
+					<WebCourseCard
 						key={item.id}
 						id={item.id}
 						title={item.title}
 						imageUrl={item.imageUrl!}
 						chaptersLength={item.chapters.length}
 						price={item.price!}
-						progress={item.progress}
 						category={item?.category?.name!}
 					/>
 				))}
 			</motion.div>
-			{items.length === 0 && (
+			{coursesItems.length === 0 && (
 				<div className='text-center text-sm text-muted-foreground mt-10'>
 					No courses found
 				</div>
 			)}
             <div className='flex justify-center items-center mt-8'>
+				<Link href="/courses">
                 <Button variant="default">
                     View all Courses
                 </Button>
+				</Link>
             </div>
 		</motion.div>
 	);

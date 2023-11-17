@@ -73,4 +73,4 @@ export const getCourses = async ({
     console.log("[GET_COURSES]", error);
     return [];
   }
-}
+} 

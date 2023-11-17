@@ -19,7 +19,7 @@ const LandingPage = () => {
 			<Hero />
 			<CoreValues />
 			<div className='relative'>
-				<PopularCourses />
+				<PopularCourses  />
 				<WhyChoseUs />
 				{/* <div className='gradient-03 z-0' /> */}
 			</div>
