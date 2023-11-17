@@ -1,3 +1,5 @@
+"use client";
+
 import { database } from '@/firebase';
 import { useUser } from '@clerk/nextjs';
 import { useCollection } from 'react-firebase-hooks/firestore';
@@ -13,30 +15,22 @@ export interface SidebarListProps {
 }
 
 export function SidebarList({ id }: SidebarListProps) {
-	// const chats = await getChats(userId)
 	const [active, setActive] = useState(false);
 	const pathName = usePathname();
 	const router = useRouter();
 	const { isLoaded, isSignedIn, user } = useUser();
-	if (!isLoaded || !isSignedIn || !user) {
-		return null;
-	}
-	const [messages] = useCollection(
-		collection(
-			database,
-			'users',
-			user?.primaryEmailAddress?.emailAddress!,
-			'chats',
-			id,
-			'messages'
-		)
+	// if (!isLoaded || !isSignedIn || !user) {
+	// 	return null;
+	// }
+	const messagesCollection = collection(
+		database,
+		'users',
+		user?.primaryEmailAddress?.emailAddress!,
+		'chats',
+		id,
+		'messages'
 	);
-
-	useEffect(() => {
-		if (!pathName) return;
-		setActive(pathName.includes(id));
-	}, [pathName]);
-
+	const [messages, loading, error] = useCollection(messagesCollection);
 	const removeChat = async () => {
 		await deleteDoc(
 			doc(
@@ -49,6 +43,11 @@ export function SidebarList({ id }: SidebarListProps) {
 		);
 		router.replace('/dashboard/chat');
 	};
+
+	useEffect(() => {
+		if (!pathName) return;
+		setActive(pathName.includes(id));
+	}, [pathName, id]); // include id in the dependency array
 
 	return (
 		<div>

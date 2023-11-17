@@ -1,21 +1,33 @@
+"use client";
+
+import { fadeIn, staggerContainer } from "@/lib/motion";
+import { motion } from "framer-motion";
+
+
 const WebFooter = () => {
 	return (
-		<section className='flex flex-col h-auto lg:justify-end font-poppins'>
-			<div className='w-full bg-gray-100 border-t dark:border-gray-900 py-0 dark:bg-gray-900'>
+		<motion.section 
+		variants={staggerContainer(0.1, 1)}
+		initial='hidden'
+		whileInView='show'
+		viewport={{ once: false, amount: 0.25 }}
+		className='flex flex-col h-auto lg:justify-end font-poppins'>
+			<motion.div 
+			variants={fadeIn("up", "tween", 0.3, 0.5)}
+			className='w-full bg-gray-100 border-t dark:border-gray-900 py-0 dark:bg-gray-900'>
 				<div className='max-w-screen-xl mx-auto'>
-					<div className='justify-center flex-1 max-w-6xl px-4 py-2 mx-auto lg:py-0'>
+					<div className='justify-center flex-1 max-w-screen-xl px-4 py-2 mx-auto lg:py-0'>
 						<div className='flex flex-wrap py-4 -mx-3'>
 							<div className='w-full px-4 mb-7 md:w-1/2 lg:w-4/12 lg:mb-0'>
 								<a
 									href='#'
 									className='inline-block pb-2 text-lg font-bold dark:text-gray-400'
 								>
-									About Company
+									About Soon Valley Skill Center
 								</a>
 								<div className='w-16 mb-4 border-b-2 border-blue-600 dark:border-gray-600'></div>
 								<p className='text-base font-normal leading-6 lg:w-64 dark:text-gray-400'>
-									Lorem ipsum dor amet Lorem ipsum dor amet Lorem ipsum dor amet
-									Lorem ipsum dor ame{' '}
+									At Soon Valley Skill Center, we believe in judicious and equitable human development.{' '}
 								</p>
 							</div>
 							<div className='w-full px-4 md:w-1/4 lg:w-2/12 mb-7 lg:mb-0'>
@@ -45,7 +57,23 @@ const WebFooter = () => {
 											href='#'
 											className='inline-block text-base font-normal dark:text-gray-400'
 										>
-											Features
+											Courses
+										</a>
+									</li>
+									<li className='mb-4'>
+										<a
+											href='#'
+											className='inline-block text-base font-normal dark:text-gray-400'
+										>
+											Prices
+										</a>
+									</li>
+									<li className='mb-4'>
+										<a
+											href='#'
+											className='inline-block text-base font-normal dark:text-gray-400'
+										>
+											Contact
 										</a>
 									</li>
 								</ul>
@@ -100,7 +128,7 @@ const WebFooter = () => {
 										<path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'></path>
 									</svg>
 									<span className='text-gray-800 dark:text-gray-400'>
-										Kathmandu, Nepal
+										Punjab, Khushab, Pakistan
 									</span>
 								</p>
 								<p className='flex items-center mb-4 '>
@@ -115,7 +143,7 @@ const WebFooter = () => {
 										<path d='M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z'></path>
 									</svg>
 									<span className='text-gray-800 dark:text-gray-400'>
-										info@gmail.com
+										contact@svdigitalcenter.com
 									</span>
 								</p>
 								<p className='flex items-center mb-4'>
@@ -130,13 +158,13 @@ const WebFooter = () => {
 										<path d='M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'></path>
 									</svg>
 									<span className='text-gray-800 dark:text-gray-400'>
-										+977-9836736352
+										+923475935715
 									</span>
 								</p>
 							</div>
 						</div>
 					</div>
-					<div className='flex flex-wrap items-center justify-between px-4 mb-4'>
+					{/* <div className='flex flex-wrap items-center justify-between px-4 mb-4'>
 						<h2 className='mb-4 text-2xl font-semibold tracking-wider text-gray-700 lg:mb-0 dark:text-gray-400'>
 							Subscribe to the latest Newsletters
 						</h2>
@@ -157,16 +185,18 @@ const WebFooter = () => {
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
-			</div>
-			<div className='px-4 py-6 bg-gray-300 dark:bg-gray-800 dark:text-gray-400'>
-				<div className='flex flex-wrap items-center justify-between max-w-6xl gap-4 mx-auto'>
-					<div className=''> © Copyright 2022 . All Rights Reserved</div>
+			</motion.div>
+			<motion.div 
+			variants={fadeIn("left", "tween", 0.3, 0.5)}
+			className='px-4 py-6 bg-gray-300'>
+				<div className='flex flex-wrap items-center justify-between max-w-screen-xl gap-4 mx-auto'>
+					<div className=''> © Copyright 2023 . All Rights Reserved</div>
 					<div className='flex items-center gap-3'>
 						<a
 							href='#'
-							className='mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-700'
+							className='mr-4 text-gray-600  hover:text-blue-700'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -181,7 +211,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-600'
+							className='mr-4 text-gray-600  hover:text-blue-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -196,7 +226,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600 dark:text-gray-400 hover:text-red-600'
+							className='mr-4 text-gray-600  hover:text-red-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -211,7 +241,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600 dark:text-gray-400 hover:text-blue-600'
+							className='mr-4 text-gray-600  hover:text-blue-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -226,8 +256,8 @@ const WebFooter = () => {
 						</a>
 					</div>
 				</div>
-			</div>
-		</section>
+			</motion.div>
+		</motion.section>
 	);
 };
 export default WebFooter;

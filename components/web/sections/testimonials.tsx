@@ -4,20 +4,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef, useEffect } from 'react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import { fadeIn, textVariant2 } from '@/lib/motion';
+import { fadeIn, staggerContainer, textVariant2 } from '@/lib/motion';
 import { TypingText } from '../components/custom-text';
 import { feedback } from '../constants';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Image from 'next/image';
+import SwiperCore from 'swiper';
 
 const Testimonials = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
 	const onAutoplayTimeLeft = (
-		swiper: Swiper,
-		timeLeft: number,
-		percentage: number
+		swiper: SwiperCore,
+  timeLeft: number,
+  percentage: number
 	) => {
 		if (progressCircle.current && progressContent.current) {
 			progressCircle.current.style.setProperty(
@@ -44,49 +46,47 @@ const Testimonials = () => {
 	// 	}
 	// };
 
-	const ref = useRef(null);
-	const isInView = useInView(ref, { once: true });
+	// const ref = useRef(null);
+	// const isInView = useInView(ref, { once: true });
 
-	const mainControls = useAnimation();
-	const slideControls = useAnimation();
+	// const mainControls = useAnimation();
+	// const slideControls = useAnimation();
 
-	useEffect(() => {
-		if (isInView) {
-			mainControls.start('visible');
-			slideControls.start('visible');
-		}
-	}, [isInView, mainControls, slideControls]);
+	// useEffect(() => {
+	// 	if (isInView) {
+	// 		mainControls.start('visible');
+	// 		slideControls.start('visible');
+	// 	}
+	// }, [isInView, mainControls, slideControls]);
 
 	return (
-		<div ref={ref}>
+		<div>
 			<motion.div
-				variants={{
-					hidden: { opacity: 0, y: -150 },
-					visible: { opacity: 1, y: 0 },
-				}}
+				variants={staggerContainer(0.1, 1)}
 				initial='hidden'
-				animate={mainControls}
-				transition={{ duration: 0.5, delay: 0.25, type: 'tween' }}
+				whileInView='show'
+				viewport={{ once: false, amount: 0.25 }}
 			>
 				<div className='w-full flex flex-col justify-center text-center items-center md:flex-row sm:mb-16 mb-10 relative z-[1]'>
 					<div className='text-center '>
 						<div className='relative flex flex-col items-center'>
 							<TypingText title='| Testimonials' textStyles='text-center' />
-							<h1
+							<motion.h1
+								variants={textVariant2('down', 'tween', 0.3, 0.7)}
 								// variants={textVariant2('down', 'tween', 0.3, 1)}
 								className='text-3xl font-bold mt-2'
 							>
 								{' '}
 								What our students say?{' '}
-							</h1>
-							<div
-								// variants={fadeIn('right', 'tween', 0.3, 1)}
+							</motion.h1>
+							<motion.div
+								variants={fadeIn('right', 'tween', 0.3, 0.7)}
 								className='flex w-36 mt-1 mb-10 overflow-hidden rounded'
 							>
 								<div className='flex-1 h-2 bg-slate-400'></div>
 								<div className='flex-1 h-2 bg-slate-600'></div>
 								<div className='flex-1 h-2 bg-slate-800'></div>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 				</div>
@@ -103,17 +103,21 @@ const Testimonials = () => {
 					navigation={true}
 					modules={[Autoplay, Pagination, Navigation]}
 					onAutoplayTimeLeft={onAutoplayTimeLeft}
-					className='mt-10 mb-10 max-w-screen-lg mx-auto z-30'
+					className='mt-10 mb-10 border-blue-400 border-1 shadow-xl max-w-screen-lg mr-0 mx-auto z-30'
 				>
 					{feedback.map((feedbackItem) => (
 						<SwiperSlide key={feedbackItem.id} className='w-auto h-auto'>
-
-							<div className='flex flex-col items-center justify-center bg-white border pb-10 rounded-[20px] transform transition-all'>
+							<motion.div
+								variants={fadeIn('right', 'tween', 0.3, 0.5)}
+								className='flex flex-col z-30 items-center justify-center px-4 bg-white border pb-10 rounded-[20px] transform transition-all'
+							>
 								<div>
-									<img
+									<Image
 										src={feedbackItem.img}
 										alt='slider images'
-										className='w-[150px] h-[150px] mt-10 rounded-full'
+										height={150}
+										width={150}
+										className='mt-10 rounded-full'
 									/>
 								</div>
 								<div>
@@ -126,11 +130,12 @@ const Testimonials = () => {
 										{feedbackItem.content}
 									</p>
 								</div>
-							</div>
+							</motion.div>
 						</SwiperSlide>
 					))}
-					<div
-						className='autoplay-progress absolute right-10 sm:bottom-1 xs:bottom-1 bottom-16 z-10 sm:w-12 sm:h-12 xs:w-12 xs:h-12 w-24 h-24 flex items-center justify-center font-bold text-swiper-theme-color'
+					{/* <motion.div
+						variants={fadeIn('left', 'tween', 0.3, 0.5)}
+						className='autoplay-progress absolute right-10 sm:bottom-1 xs:mt-10 xs:bottom-1 bottom-16 sm:w-8 sm:h-8 xs:w-8 xs:h-8 w-24 h-24 flex items-center justify-center font-bold text-swiper-theme-color'
 						slot='container-end'
 					>
 						<svg
@@ -150,7 +155,7 @@ const Testimonials = () => {
 							></circle>
 						</svg>
 						<span ref={progressContent}></span>
-					</div>
+					</motion.div> */}
 				</Swiper>
 			</motion.div>
 		</div>

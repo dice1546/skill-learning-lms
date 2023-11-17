@@ -26,9 +26,6 @@ import { getAuth } from '@clerk/nextjs/server';
 export function Header() {
 
   const { isLoaded, isSignedIn, user } = useUser();
-  if (!isLoaded || !isSignedIn || !user) {
-    return null;
-  }
 
   const [chats, loading, error] = useCollection(
     user && query(collection(database, "users", user?.primaryEmailAddress?.emailAddress!, "chats"), 

@@ -14,19 +14,19 @@ const LandingPage = () => {
 	return (
 		<div className='bg-white overflow-hidden'>
 			<div>
-			<WebNavbar />
+				<WebNavbar />
 			</div>
 			<Hero />
 			<CoreValues />
-			<PopularCourses />
-			<WhyChoseUs />
 			<div className='relative'>
+				<PopularCourses />
+				<WhyChoseUs />
 				{/* <div className='gradient-03 z-0' /> */}
 			</div>
 			<div className='relative mt-5 mb-20'>
-			<Testimonials />
+				<Testimonials />
 				<div className='gradient-04 z-0' />
-			<ForTeachers />
+				<ForTeachers />
 			</div>
 			<WebFooter />
 		</div>

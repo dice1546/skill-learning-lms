@@ -19,12 +19,14 @@ const WebNavbar = () => {
 			whileInView='show'
 			className={`${styles.xPaddings} relative`}
 		>
-			<div className='max-w-screen-xl px-4 w-full mx-auto flex justify-between gap-10'>
+			<div className='max-w-screen-xl px-4 w-full mx-auto flex justify-between mt-5 gap-10'>
 				<Link href='/'>
-					<img
-						src='/skillustad.png'
-						alt='search'
-						className='w-[200px] h-[90px] md:w-[200px] md:h-[90px] mt-3 z-50 cursor-pointer object-contain'
+					<Image
+					height={90}
+					width={200}
+					src='/skillustad.png'
+					alt='search'
+					className='mt-3 z-50 cursor-pointer object-contain'
 					/>
 				</Link>
 				<motion.ul
@@ -39,21 +41,21 @@ const WebNavbar = () => {
 						</Button>
 					</Link>
 					<Link
-						href='/'
+						href='/courses'
 					>
 						<Button variant='ghost'>
 							Courses
 						</Button>
 					</Link>
 					<Link
-						href='/'
+						href='/pricing'
 					>
 						<Button variant='ghost'>
-							Prices
+							Pricing
 						</Button>
 					</Link>
 					<Link
-						href='/'
+						href='/contact'
 					>
 						<Button variant='ghost'>
 							Contact

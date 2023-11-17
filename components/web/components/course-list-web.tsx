@@ -4,6 +4,7 @@ import {  fadeIn, staggerContainer } from "@/lib/motion";
 import { motion } from 'framer-motion';
 import { CourseCard } from '@/components/course-card';
 import { Button } from '@/components/ui/button';
+import { TypingText } from './custom-text';
 
 type CourseWithProgressWithCategory = Course & {
 	category: Category | null;
@@ -25,6 +26,7 @@ export const CoursesListWeb = ({ items }: CoursesListProps) => {
 			className='max-w-screen-xl px-4 py-8 w-full mx-auto mt-36 mb-20'
 		>
 			<div className='text-center flex flex-col items-center'>
+			<TypingText title='| What to Learn?' textStyles='text-center' />
 				<h1 className='text-3xl font-bold mt-2'>Popular Courses</h1>
 				<div className='flex w-36 mt-1 mb-10 overflow-hidden rounded'>
 					<div className='flex-1 h-2 bg-slate-400'></div>
@@ -34,7 +36,7 @@ export const CoursesListWeb = ({ items }: CoursesListProps) => {
 			</div>
 
 			<motion.div 
-            variants={fadeIn('right', 'tween', 0.3, 1)}
+            variants={fadeIn('right', 'tween', 0.3, 0.8)}
             className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4'>
 				{items.map((item) => (
 					<CourseCard
