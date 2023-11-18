@@ -41,7 +41,7 @@ const WebNavbar = () => {
 						</Button>
 					</Link>
 					<Link
-						href='/courses'
+						href='/learning'
 					>
 						<Button variant='ghost'>
 							Courses
