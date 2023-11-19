@@ -36,8 +36,8 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 				</div>
 			</div>
 
-			<motion.div 
-            variants={fadeIn('right', 'tween', 0.3, 0.8)}
+			<div 
+            // variants={fadeIn('right', 'tween', 0.3, 0.8)}
             className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4'>
 				{coursesItems.map((item) => (
 					<WebCourseCard
@@ -50,7 +50,7 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 						category={item?.category?.name!}
 					/>
 				))}
-			</motion.div>
+			</div>
 			{coursesItems.length === 0 && (
 				<div className='text-center text-sm text-muted-foreground mt-10'>
 					No courses found
