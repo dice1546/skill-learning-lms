@@ -25,6 +25,8 @@ model Course {
   attachments Attachment[]
   purchases   Purchase[]
 
+  isFree      Boolean @default(false)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

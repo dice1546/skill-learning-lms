@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Compass, DollarSign, GraduationCap, HelpCircleIcon, LanguagesIcon, Layout, List, Mail, MessageCircle, MessageSquareIcon, TrendingUp } from "lucide-react";
+import { BarChart, BookIcon, Compass, DollarSign, GraduationCap, HelpCircleIcon, LanguagesIcon, Layout, List, Mail, MessageCircle, MessageSquareIcon, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SidebarItem } from "./sidebar-item";
@@ -36,6 +36,12 @@ const guestRoutes = [
     label: "Career & Jobs",
     href: "/dashboard/career",
   },
+  {
+    icon: BookIcon,
+    label: "Homework",
+    href: "/dashboard/homework",
+  },
+
   {
     icon: GraduationCap,
     label: "Certifications",

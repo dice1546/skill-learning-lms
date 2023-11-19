@@ -40,6 +40,18 @@ export async function POST(
       return new NextResponse("Not found", { status: 404 });
     }
 
+    if (course.price === 0) {
+      await db.purchase.create({
+        data: {
+          userId: user.id,
+          courseId: params.courseId,
+          // Add other necessary fields here
+        }
+      });
+
+      return NextResponse.json({ message: "Enrolled for free" });
+    }
+
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
         quantity: 1,

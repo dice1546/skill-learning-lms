@@ -30,7 +30,7 @@ export const CourseEnrollButton = ({
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
     <Button
@@ -39,7 +39,7 @@ export const CourseEnrollButton = ({
       size="sm"
       className="w-full md:w-auto"
     >
-      Enroll for {formatPrice(price)}
+      {price === 0 ? "Enroll for Free" : `Enroll for ${formatPrice(price)}`}
     </Button>
-  )
-}
+  );
+};
