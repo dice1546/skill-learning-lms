@@ -5,6 +5,7 @@ import { BookOpen, Share } from 'lucide-react';
 import { IconBadge } from '@/components/icon-badge';
 import { formatPrice } from '@/lib/format';
 import { CourseProgress } from '@/components/course-progress';
+import { useCallback } from "react";
 
 interface WebCourseCardProps {
 	id: string;
@@ -23,6 +24,18 @@ export const WebCourseCard = ({
 	price,
 	category,
 }: WebCourseCardProps) => {
+	const shareCourse = useCallback(() => {
+		if (navigator.share) {
+		  navigator.share({
+			title: `Check out this course: ${title}`,
+			url: `${window.location.origin}/courses/${id}`,
+		  })
+		  .catch(console.error);
+		} else {
+		  // Fallback for browsers that do not support the Web Share API
+		  alert(`Share this link: ${window.location.origin}/courses/${id}`);
+		}
+	  }, [id, title]);
 	return (
 		<div className='group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full'>
 			<Link href={`/learning/${id}`}>
@@ -38,7 +51,7 @@ export const WebCourseCard = ({
 							{title}
 						</div>
 					</Link>
-					<Share className='h-5 w-5 text-blue-700' />{' '}
+					<Share className="h-5 w-5 text-blue-700 cursor-pointer" onClick={shareCourse} />{" "}
 				</div>
 				<p className='text-xs text-muted-foreground'>{category}</p>
 				<div className='my-3 flex items-center gap-x-2 text-sm md:text-xs'>
@@ -53,7 +66,7 @@ export const WebCourseCard = ({
 					{' '}
 					{/* Replace ShareIcon with the actual share icon component */}
 					<p className='text-md md:text-sm left font-medium text-slate-700'>
-						{formatPrice(price)}
+					{price === 0 ? "Enroll For Free" : formatPrice(price)}
 					</p>
 				</div>
 			</div>
