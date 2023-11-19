@@ -10,7 +10,7 @@ const ForTeachers = () => {
 		variants={staggerContainer(0.1, 1)}
 		initial='hidden'
 		whileInView='show'
-		viewport={{ once: false, amount: 0.25 }}
+		viewport={{ once: false, amount: 0.10 }}
 		className='flex items-center h-screen bg-transparent font-poppin z-30 mt-10'>
 			<motion.div
 			variants={fadeIn('right', 'tween', 0.3, 0.5)}

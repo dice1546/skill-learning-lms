@@ -10,7 +10,7 @@ const CoreValues = () => {
 			variants={staggerContainer(0.1, 1)}
 			initial='hidden'
 			whileInView='show'
-			viewport={{ once: false, amount: 0.25 }}
+			viewport={{ once: false, amount: 0.10 }}
 			className='max-w-screen-xl px-4 py-8 w-full mx-auto mt-10'
 		>
 			<div className='max-w-xl mx-auto'>

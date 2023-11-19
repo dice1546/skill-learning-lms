@@ -10,7 +10,7 @@ const WebFooter = () => {
 		variants={staggerContainer(0.1, 1)}
 		initial='hidden'
 		whileInView='show'
-		viewport={{ once: false, amount: 0.25 }}
+		viewport={{ once: false, amount: 0.10 }}
 		className='flex flex-col h-auto lg:justify-end font-poppins'>
 			<motion.div 
 			variants={fadeIn("up", "tween", 0.3, 0.5)}

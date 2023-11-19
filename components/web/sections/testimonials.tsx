@@ -65,7 +65,7 @@ const Testimonials = () => {
 				variants={staggerContainer(0.1, 1)}
 				initial='hidden'
 				whileInView='show'
-				viewport={{ once: false, amount: 0.25 }}
+				viewport={{ once: false, amount: 0.10 }}
 			>
 				<div className='w-full flex flex-col justify-center text-center items-center md:flex-row sm:mb-16 mb-10 relative z-[1]'>
 					<div className='text-center '>

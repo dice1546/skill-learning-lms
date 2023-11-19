@@ -13,7 +13,7 @@ const Hero = () => {
 				variants={staggerContainer(0.1, 1)}
 				initial='hidden'
 				whileInView='show'
-				viewport={{ once: false, amount: 0.25 }}
+				viewport={{ once: false, amount: 0.10 }}
 				className='grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12'
 			>
 				<div className='mr-auto place-self-center lg:col-span-7'>
@@ -25,9 +25,6 @@ const Hero = () => {
 					</motion.h1>
 					<motion.p
 						variants={textVariant2('left', 'tween', 0.4, 0.5)}
-						initial='hidden'
-						whileInView='show'
-						viewport={{ once: false, amount: 0.25 }}
 						className='max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400'
 					>
 						Welcome to SkillUstad, where we believe in the power of learning to

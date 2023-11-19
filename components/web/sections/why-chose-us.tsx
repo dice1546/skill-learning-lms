@@ -13,7 +13,7 @@ const WhyChoseUs = () => {
 			variants={staggerContainer(0.1, 1)}
 			initial='hidden'
 			whileInView='show'
-			viewport={{ once: false, amount: 0.25 }}
+			viewport={{ once: false, amount: 0.10 }}
 			className='flex items-center bg-white lg:h-screen font-poppins '
 		>
 			<div className='justify-center flex-1 max-w-screen-xl py-4 mx-auto lg:py-6 md:px-6'>
