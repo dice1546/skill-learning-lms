@@ -23,7 +23,7 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 			variants={staggerContainer(0.1, 1)}
 			initial='hidden'
 			whileInView='show'
-			viewport={{ once: false, amount: 0.50 }}
+			viewport={{ once: false, amount: 0.05 }}
 			className='max-w-screen-xl px-4 py-8 w-full mx-auto mt-36 mb-20'
 		>
 			<div className='text-center flex flex-col items-center'>
