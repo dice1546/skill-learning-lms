@@ -2,7 +2,7 @@ import React from 'react'
 
 const Subscriptions = () => {
   return (
-    <div>Subscriptions</div>
+    <div className='p-6'>Subscriptions</div>
   )
 }
 

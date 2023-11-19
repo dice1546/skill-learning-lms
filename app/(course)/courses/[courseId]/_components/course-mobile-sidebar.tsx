@@ -25,9 +25,9 @@ export const CourseMobileSidebar = ({
   return (
     <Sheet>
       <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition">
-        <Menu />
+        <Menu className="text-black dark:text-white"/>
       </SheetTrigger>
-      <SheetContent side="left" className="p-0 bg-white w-72">
+      <SheetContent side="left" className="p-0 bg-white dark:bg-slate-900 w-72">
         <CourseSidebar
           course={course}
           progressCount={progressCount}

@@ -32,7 +32,7 @@ model Course {
 
   @@index([categoryId])
   @@fulltext([title])
-}
+} 
 
 model Category {
   id      String   @id @default(uuid())

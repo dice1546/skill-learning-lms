@@ -42,7 +42,7 @@ export const CourseCard = ({
   	}
     }, [id, title]);
   return (
-    <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
+    <div className="group hover:shadow-sm transition overflow-hidden border dark:border-slate-500 rounded-lg p-3 h-full">
       <Link href={`/courses/${id}`}>
         <div className="relative w-full aspect-video rounded-md overflow-hidden">
           <Image fill className="object-cover" alt={title} src={imageUrl} />
@@ -52,15 +52,15 @@ export const CourseCard = ({
         <div className="flex items-center justify-between">
           {" "}
           <Link href={`/courses/${id}`}>
-            <div className="text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2">
+            <div className="text-lg text-black dark:text-white md:text-base font-medium group-hover:text-sky-700 dark:group-hover:text-sky-200 transition line-clamp-2">
               {title}
             </div>
           </Link>
-		  <Share className="h-5 w-5 text-blue-700 cursor-pointer" onClick={shareCourse} />{" "}
+		  <Share className="h-5 w-5 dark:text-blue-300 text-black cursor-pointer" onClick={shareCourse} />{" "}
         </div>
-        <p className="text-xs text-muted-foreground">{category}</p>
+        <p className="text-xs text-black dark:text-slate-300 text-muted-foreground">{category}</p>
         <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
-          <div className="flex items-center gap-x-1 text-slate-500">
+          <div className="flex items-center gap-x-1 text-slate-500 dark:text-slate-200">
             <IconBadge size="sm" icon={BookOpen} />
             <span>
               {chaptersLength} {chaptersLength === 1 ? "Chapter" : "Chapters"}
@@ -77,7 +77,7 @@ export const CourseCard = ({
           <div className="flex items-center justify-between">
             {" "}
             {/* Replace ShareIcon with the actual share icon component */}
-            <p className="text-md md:text-sm left font-medium text-slate-900">
+            <p className="text-md md:text-sm left font-medium dark:text-white text-slate-900">
               {price === 0 ? "Enroll For Free" : formatPrice(price)}
             </p>
           </div>

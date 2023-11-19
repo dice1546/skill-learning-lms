@@ -45,7 +45,7 @@ const ChapterIdPage = async ({
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
   return ( 
-    <div>
+    <div className="bg-white dark:bg-slate-900">
       {userProgress?.isCompleted && (
         <Banner
           variant="success"
@@ -72,7 +72,7 @@ const ChapterIdPage = async ({
         </div>
         <div>
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">
-            <h2 className="text-2xl font-semibold mb-2">
+            <h2 className="text-2xl font-semibold mb-2 text-black dark:text-white">
               {chapter.title}
             </h2>
             {purchase ? (
@@ -89,13 +89,13 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
-          <Separator />
-          <div>
+          <Separator className="text-slate-700 dark:text-slate-600"/>
+          <div className="text-black dark:text-white">
             <Preview value={chapter.description!} />
           </div>
           {!!attachments.length && (
             <>
-              <Separator />
+              <Separator className="text-slate-700 dark:text-slate-600"/>
               <div className="p-4">
                 {attachments.map((attachment) => (
                   <a 

@@ -8,7 +8,7 @@ export default function IndexPage() {
 
 	return (
 		<div>
-			<Chat id={id} />
+			<Chat id={id} className='px-6 space-y-4' />
 		</div>
 	);
 }

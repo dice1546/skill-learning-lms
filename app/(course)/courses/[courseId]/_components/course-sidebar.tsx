@@ -36,9 +36,9 @@ export const CourseSidebar = async ({
   });
 
   return (
-    <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
-      <div className="p-8 flex flex-col border-b">
-        <h1 className="font-semibold">
+    <div className="h-full border-r bg-white dark:bg-slate-900 dark:border-r-slate-500 flex flex-col overflow-y-auto shadow-sm">
+      <div className="p-8 flex flex-col border-b dark:border-b-slate-500">
+        <h1 className="font-semibold text-lg text-black dark:text-white">
           {course.title}
         </h1>
         {purchase && (

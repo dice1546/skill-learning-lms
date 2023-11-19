@@ -12,14 +12,12 @@ interface SearchPageProps {
   searchParams: {
     title: string;
     categoryId: string;
-  }
-};
+  };
+}
 
 let delayedRender = false; // Initialize a flag for the delay
 
-const SearchPage = async ({
-  searchParams
-}: SearchPageProps) => {
+const SearchPage = async ({ searchParams }: SearchPageProps) => {
   const { userId } = auth();
 
   if (!userId) {
@@ -36,8 +34,8 @@ const SearchPage = async ({
 
   const categories = await db.category.findMany({
     orderBy: {
-      name: "asc"
-    }
+      name: "asc",
+    },
   });
 
   const courses = await getCourses({
@@ -50,15 +48,13 @@ const SearchPage = async ({
       <div className="px-6 pt-6 md:hidden md:mb-0 block">
         <SearchInput />
       </div>
-      <div className="p-6 space-y-4">
-        <Categories
-          items={categories}
-        />
+      <div className="p-6 space-y-4 bg-white dark:bg-slate-900">
+        <Categories items={categories} />
         <CoursesList items={courses} />
       </div>
     </>
   );
-}
+};
 
 export default SearchPage;
 
@@ -117,5 +113,5 @@ export default SearchPage;
 //     </>
 //    );
 // }
- 
+
 // export default SearchPage;

@@ -13,10 +13,10 @@ const ChatLayout = ({ children }: RootLayoutProps) => {
 		<div className='h-full'>
 			<Toaster />
 			<Providers attribute='class' defaultTheme='system' enableSystem>
-				<div className='flex flex-col min-h-screen'>
+				<div className='flex flex-col space-y-4'>
 					{/* @ts-ignore */}
 					 <Header />
-					<main className='pt-[20px] h-full'>{children}</main>
+					<main className='pt-[20px] space-y-4'>{children}</main>
 				</div>
 				<TailwindIndicator />
 			</Providers>
