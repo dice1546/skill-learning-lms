@@ -56,7 +56,7 @@ export const CourseCard = ({
               {title}
             </div>
           </Link>
-		  <Share className="h-5 w-5 text-blue-700" onClick={shareCourse} />{" "}
+		  <Share className="h-5 w-5 text-blue-700 cursor-pointer" onClick={shareCourse} />{" "}
         </div>
         <p className="text-xs text-muted-foreground">{category}</p>
         <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
