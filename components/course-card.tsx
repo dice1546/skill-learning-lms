@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Share } from "lucide-react";
@@ -28,18 +29,18 @@ export const CourseCard = ({
   category,
 }: CourseCardProps) => {
 
-	const shareCourse = useCallback(() => {
-		if (navigator.share) {
-		  navigator.share({
-			title: `Check out this course: ${title}`,
-			url: `${window.location.origin}/courses/${id}`,
-		  })
-		  .catch(console.error);
-		} else {
-		  // Fallback for browsers that do not support the Web Share API
-		  alert(`Share this link: ${window.location.origin}/courses/${id}`);
-		}
-	  }, [id, title]);
+  const shareCourse = useCallback(() => {
+  	if (navigator.share) {
+  	  navigator.share({
+  		title: `Check out this course: ${title}`,
+  		url: `${window.location.origin}/courses/${id}`,
+  	  })
+  	  .catch(console.error);
+  	} else {
+  	  // Fallback for browsers that do not support the Web Share API
+  	  alert(`Share this link: ${window.location.origin}/courses/${id}`);
+  	}
+    }, [id, title]);
   return (
     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
       <Link href={`/courses/${id}`}>
@@ -55,7 +56,7 @@ export const CourseCard = ({
               {title}
             </div>
           </Link>
-          <Share className="h-5 w-5 text-blue-700 cursor-pointer" onClick={shareCourse} />{" "}
+		  <Share className="h-5 w-5 text-blue-700" onClick={shareCourse} />{" "}
         </div>
         <p className="text-xs text-muted-foreground">{category}</p>
         <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
