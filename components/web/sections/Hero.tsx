@@ -19,7 +19,7 @@ const Hero = () => {
 				<div className='mr-auto place-self-center lg:col-span-7'>
 					<motion.h1
 						variants={textVariant2('down', 'tween', 0.4, 0.5)}
-						className='max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl text-black dark:text-white'
+						className='max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl text-black dark:text-black'
 					>
 						Unlock Your Potential with Cutting-Edge Digital Training
 					</motion.h1>
