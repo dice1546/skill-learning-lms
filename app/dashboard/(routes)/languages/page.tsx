@@ -5,12 +5,13 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 interface LanguageProps {
-  categoryId: string;
+  categoryId: string | null;
 }
 
 let delayedRender = false;
 
-const Languages = async ({ categoryId }: LanguageProps) => {
+const Languages = async () => {
+  
   const { userId } = auth();
   if (!userId) {
     return redirect("/dashboard");
