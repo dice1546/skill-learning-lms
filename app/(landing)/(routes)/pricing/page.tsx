@@ -5,7 +5,7 @@ import WebFooter from "@/components/web/sections/web-footer"
 
 const Pricing = () => {
   return (
-    <div className='bg-white overflow-hidden'>
+    <div className='bg-white dark:bg-black overflow-hidden'>
 			<div>
 				<WebNavbar />
 			</div>

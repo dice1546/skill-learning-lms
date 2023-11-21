@@ -6,7 +6,7 @@ import React from 'react'
 
 const ContactUs = () => {
   return (
-    <div className='bg-white overflow-hidden'>
+    <div className='bg-white dark:bg-black overflow-hidden'>
 			<div>
 				<WebNavbar />
 			</div>

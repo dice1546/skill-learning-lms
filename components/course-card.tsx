@@ -42,7 +42,7 @@ export const CourseCard = ({
   	}
     }, [id, title]);
   return (
-    <div className="group hover:shadow-sm transition overflow-hidden border dark:border-slate-500 rounded-lg p-3 h-full">
+    <div className="group hover:shadow-sm transition overflow-hidden border hover:border-slate-600 dark:border-slate-600 dark:hover:border-blue-300 rounded-lg p-3 h-full">
       <Link href={`/courses/${id}`}>
         <div className="relative w-full aspect-video rounded-md overflow-hidden">
           <Image fill className="object-cover" alt={title} src={imageUrl} />

@@ -37,7 +37,7 @@ export const WebCourseCard = ({
 		}
 	  }, [id, title]);
 	return (
-		<div className='group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full'>
+		<div className='group hover:shadow-sm transition overflow-hidden border hover:border-black dark:hover:border-blue-300 dark:border-slate-600 rounded-lg p-3 h-full'>
 			<Link href={`/learning/${id}`}>
 				<div className='relative w-full aspect-video rounded-md overflow-hidden'>
 					<Image fill className='object-cover' alt={title} src={imageUrl} />
@@ -47,15 +47,15 @@ export const WebCourseCard = ({
 				<div className='flex items-center justify-between'>
 					{' '}
 					<Link href={`/learning/${id}`}>
-						<div className='text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2'>
+						<div className='text-lg md:text-base font-medium text-black dark:text-white dark:group-hover:text-blue-200 group-hover:text-sky-700 transition line-clamp-2'>
 							{title}
 						</div>
 					</Link>
-					<Share className="h-5 w-5 text-blue-700 cursor-pointer" onClick={shareCourse} />{" "}
+					<Share className="h-5 w-5 text-blue-700 dark:text-blue-300 cursor-pointer" onClick={shareCourse} />{" "}
 				</div>
-				<p className='text-xs text-muted-foreground'>{category}</p>
+				<p className='text-xs text-slate-500 dark:text-blue-200'>{category}</p>
 				<div className='my-3 flex items-center gap-x-2 text-sm md:text-xs'>
-					<div className='flex items-center gap-x-1 text-slate-500'>
+					<div className='flex items-center gap-x-1 text-slate-500 dark:text-blue-100'>
 						<IconBadge size='sm' icon={BookOpen} />
 						<span>
 							{chaptersLength} {chaptersLength === 1 ? 'Chapter' : 'Chapters'}
@@ -65,7 +65,7 @@ export const WebCourseCard = ({
 				<div className='flex items-center justify-between'>
 					{' '}
 					{/* Replace ShareIcon with the actual share icon component */}
-					<p className='text-md md:text-sm left font-medium text-slate-700'>
+					<p className='text-md md:text-sm left font-medium text-slate-700 dark:text-green-200'>
 					{price === 0 ? "Enroll For Free" : formatPrice(price)}
 					</p>
 				</div>

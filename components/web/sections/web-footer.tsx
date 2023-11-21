@@ -190,13 +190,13 @@ const WebFooter = () => {
 			</motion.div>
 			<motion.div 
 			variants={fadeIn("left", "tween", 0.3, 0.5)}
-			className='px-4 py-6 bg-gray-300'>
+			className='px-4 py-6 bg-gray-300 dark:bg-black'>
 				<div className='flex flex-wrap items-center justify-between max-w-screen-xl gap-4 mx-auto'>
-					<div className=''> © Copyright 2023 . All Rights Reserved</div>
+					<div className='text-black dark:text-white'> © Copyright 2023 . All Rights Reserved</div>
 					<div className='flex items-center gap-3'>
 						<a
 							href='#'
-							className='mr-4 text-gray-600  hover:text-blue-700'
+							className='mr-4 text-gray-600 dark:text-white hover:text-blue-700'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -211,7 +211,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600  hover:text-blue-600'
+							className='mr-4 text-gray-600 dark:text-white  hover:text-blue-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -226,7 +226,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600  hover:text-red-600'
+							className='mr-4 text-gray-600 dark:text-white  hover:text-red-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -241,7 +241,7 @@ const WebFooter = () => {
 						</a>
 						<a
 							href='#'
-							className='mr-4 text-gray-600  hover:text-blue-600'
+							className='mr-4 text-gray-600 dark:text-white  hover:text-blue-600'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'

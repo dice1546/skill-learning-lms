@@ -14,14 +14,14 @@ const WhyChoseUs = () => {
 			initial='hidden'
 			whileInView='show'
 			viewport={{ once: false, amount: 0.10 }}
-			className='flex items-center bg-white lg:h-screen font-poppins '
+			className='flex items-center bg-white dark:bg-black lg:h-screen font-poppins '
 		>
 			<div className='justify-center flex-1 max-w-screen-xl py-4 mx-auto lg:py-6 md:px-6'>
 				<div className='px-4 mb-10 md:text-center md:items-center xs:text-center xs:items-center sm:text-center sm:items-center md:mb-20'>
 					<TypingText title='| Who we are' textStyles='text-center' />
 					<motion.h2
 						variants={fadeIn('left', 'spring', 0.3, 0.5)}
-						className='pb-2 text-2xl font-bold text-gray-800 md:text-4xl'
+						className='pb-2 text-2xl font-bold text-gray-800 dark:text-white md:text-4xl'
 					>
 						Whay choose us?
 					</motion.h2>
@@ -119,7 +119,7 @@ const WhyChoseUs = () => {
                         <motion.div 
                         variants={fadeIn("right", "tween", 0.4, 0.4)}>
 						<Link href='/about'>
-							<Button>Learn More</Button>
+							<Button className='border'>Learn More</Button>
 						</Link>
                         </motion.div>
 					</div>

@@ -111,16 +111,16 @@ body,
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: rgb(36 48 63 / var(--tw-bg-opacity));
+  background-color: rgb(0, 0, 0);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #cdcdcd;
+  background: #787878;
   border-radius: 15px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #4586ff;
+  background: #4687ff;
 }
 
 .ql-container {

@@ -28,7 +28,7 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 		>
 			<div className='text-center flex flex-col items-center'>
 			<TypingText title='| What to Learn?' textStyles='text-center' />
-				<h1 className='text-3xl font-bold mt-2'>Popular Courses</h1>
+				<h1 className='text-3xl font-bold mt-2 dark:text-white text-black'>Popular Courses</h1>
 				<div className='flex w-36 mt-1 mb-10 overflow-hidden rounded'>
 					<div className='flex-1 h-2 bg-slate-400'></div>
 					<div className='flex-1 h-2 bg-slate-600'></div>
@@ -58,7 +58,7 @@ export const CoursesListWeb = ({ coursesItems }: WebCoursesListProps) => {
 			)}
             <div className='flex justify-center items-center mt-8'>
 				<Link href="/learning">
-                <Button variant="default">
+                <Button variant="default" className='border'>
                     View all Courses
                 </Button>
 				</Link>

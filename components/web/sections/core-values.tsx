@@ -26,7 +26,7 @@ const CoreValues = () => {
 						</motion.div> */}
 						<motion.h1 
 						variants={textVariant2('down', 'tween', 0.3, 1)}
-						className='text-3xl font-bold mt-2'> Our core values </motion.h1>
+						className='text-3xl font-bold mt-2 dark:text-white text-black'> Our core values </motion.h1>
 						<motion.div 
 						variants={fadeIn('right', 'tween', 0.3, 1)}
 						className='flex w-36 mt-1 mb-10 overflow-hidden rounded'>
@@ -40,7 +40,7 @@ const CoreValues = () => {
 			<div className='grid grid-cols-1 gap-x-4 gap-y-6 lg:gap-x-8 lg:gap-y-8 md:grid-cols-2 lg:grid-cols-3'>
 				<motion.div 
 				variants={fadeIn('left', 'spring', 0.3, 0.5)}
-				className='w-full p-8 mb-5 text-center transition-all bg-white border rounded-xl shadow dark:bg-gray-700 hover:shadow-lg'>
+				className='w-full p-8 mb-5 text-center transition-all bg-white border dark:shadow-slate-600 rounded-xl shadow-2xl dark:bg-gray-700 hover:shadow-lg'>
 					<div className='inline-block p-4 mb-6 -mt-16 bg-black rounded-full'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -65,7 +65,7 @@ const CoreValues = () => {
 				</motion.div>
 				<motion.div  
 				variants={fadeIn('left', 'spring', 0.3, 0.5)}
-				className='w-full p-8 mb-5 text-center transition-all bg-black border rounded-xl shadow hover:shadow-lg'>
+				className='w-full p-8 mb-5 text-center transition-all bg-black dark:shadow-slate-600 border rounded-xl shadow-2xl hover:shadow-lg'>
 					<div className='inline-block p-4 mb-6 -mt-16 bg-white rounded-full'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -91,7 +91,7 @@ const CoreValues = () => {
 				</motion.div>
 				<motion.div 
 				variants={fadeIn('left', 'spring', 0.3, 0.5)}
-				className='w-full p-8 mb-5 text-center transition-all bg-white border rounded-xl shadow dark:bg-gray-700 hover:shadow-lg'>
+				className='w-full p-8 mb-5 text-center transition-all dark:shadow-slate-600 shadow-2xl z-20 bg-white border rounded-xl dark:bg-gray-700 hover:shadow-lg'>
 					<div className='inline-block p-4 mb-6 -mt-16 bg-black rounded-full'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'

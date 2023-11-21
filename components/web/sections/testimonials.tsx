@@ -66,6 +66,7 @@ const Testimonials = () => {
 				initial='hidden'
 				whileInView='show'
 				viewport={{ once: false, amount: 0.10 }}
+				className='mt-10'
 			>
 				<div className='w-full flex flex-col justify-center text-center items-center md:flex-row sm:mb-16 mb-10 relative z-[1]'>
 					<div className='text-center '>
@@ -74,7 +75,7 @@ const Testimonials = () => {
 							<motion.h1
 								variants={textVariant2('down', 'tween', 0.3, 0.7)}
 								// variants={textVariant2('down', 'tween', 0.3, 1)}
-								className='text-3xl font-bold mt-2'
+								className='text-3xl font-bold mt-2 text-black dark:text-white'
 							>
 								{' '}
 								What our students say?{' '}
@@ -109,7 +110,7 @@ const Testimonials = () => {
 						<SwiperSlide key={feedbackItem.id} className='w-auto h-auto'>
 							<motion.div
 								variants={fadeIn('right', 'tween', 0.3, 0.5)}
-								className='flex flex-col z-30 items-center justify-center px-4 bg-white border pb-10 rounded-[20px] transform transition-all'
+								className='flex flex-col z-30 items-center justify-center px-4 bg-white dark:bg-slate-800 border pb-10 rounded-[20px] transform transition-all'
 							>
 								<div>
 									<Image
@@ -121,12 +122,12 @@ const Testimonials = () => {
 									/>
 								</div>
 								<div>
-									<h3 className='font-poppins font-bold text-black pt-10 pb-5'>
+									<h3 className='font-poppins font-bold text-black dark:text-white pt-10 pb-5'>
 										{feedbackItem.name}
 									</h3>
 								</div>
 								<div>
-									<p className='font-poppins font-medium text-black pb-14 xs:mr-8 xs:ml-8 sm:mr-8 sm:ml-8'>
+									<p className='font-poppins font-medium text-black dark:text-white pb-14 xs:mr-8 xs:ml-8 sm:mr-8 sm:ml-8'>
 										{feedbackItem.content}
 									</p>
 								</div>

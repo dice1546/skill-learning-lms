@@ -17,7 +17,7 @@ const WebNavbar = () => {
 			variants={navVariants}
 			initial='hidden'
 			whileInView='show'
-			className={`${styles.xPaddings} relative`}
+			className={`${styles.xPaddings} relative bg-white dark:bg-black`}
 		>
 			<div className='max-w-screen-xl px-4 w-full mx-auto flex justify-between mt-5 gap-10'>
 				<Link href='/'>
@@ -33,39 +33,39 @@ const WebNavbar = () => {
 					className={`list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1 `}
 				>
 					<Link href='/'>
-						<Button variant='ghost'>Home</Button>
+						<Button variant='ghost' className='border text-black dark:text-white ml-3 mr-3'>Home</Button>
 					</Link>
 					<Link href='/about'>
-						<Button variant='ghost'>
+						<Button variant='ghost' className='border text-black dark:text-white ml-3 mr-3'>
 							About Us
 						</Button>
 					</Link>
 					<Link
 						href='/learning'
 					>
-						<Button variant='ghost'>
+						<Button variant='ghost' className='border text-black dark:text-white ml-3 mr-3'>
 							Courses
 						</Button>
 					</Link>
 					<Link
 						href='/pricing'
 					>
-						<Button variant='ghost'>
+						<Button variant='ghost' className='border text-black dark:text-white ml-3 mr-3'>
 							Pricing
 						</Button>
 					</Link>
 					<Link
 						href='/contact'
 					>
-						<Button variant='ghost'>
+						<Button variant='ghost' className='border text-black dark:text-white ml-3 mr-3'>
 							Contact
 						</Button>
 					</Link>
 					<Link href='/dashboard' className='ml-3 mr-3'>
-						<Button variant='outline'>Log in</Button>
+						<Button variant='outline' className='bg-whte dark:bg-black text-black dark:text-white'>Log in</Button>
 					</Link>
 					<Link href='/dashboard'>
-						<Button variant='default'>Sign Up</Button>
+						<Button variant='outline'>Sign Up</Button>
 					</Link>
 				</motion.ul>
 				<div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -74,6 +74,8 @@ const WebNavbar = () => {
 						alt='menu'
 						width={24}
 						height={24}
+						color='white'
+						
 						onClick={() => setToggle((prev) => !prev)}
 					/>
 					<div
