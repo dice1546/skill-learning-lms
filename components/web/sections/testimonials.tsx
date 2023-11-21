@@ -107,10 +107,10 @@ const Testimonials = () => {
 					className='mt-10 mb-10 border-blue-400 border-1 shadow-xl max-w-screen-lg mr-0 mx-auto z-30'
 				>
 					{feedback.map((feedbackItem) => (
-						<SwiperSlide key={feedbackItem.id} className='w-auto h-auto'>
+						<SwiperSlide key={feedbackItem.id} className='w-auto h-auto px-6'>
 							<motion.div
 								variants={fadeIn('right', 'tween', 0.3, 0.5)}
-								className='flex flex-col z-30 items-center justify-center px-4 bg-white dark:bg-slate-800 border pb-10 rounded-[20px] transform transition-all'
+								className='flex flex-col z-30 items-center justify-center bg-white dark:bg-slate-800 border pb-10 rounded-[20px] transform transition-all'
 							>
 								<div>
 									<Image
@@ -127,7 +127,7 @@ const Testimonials = () => {
 									</h3>
 								</div>
 								<div>
-									<p className='font-poppins font-medium text-black dark:text-white pb-14 xs:mr-8 xs:ml-8 sm:mr-8 sm:ml-8'>
+									<p className='font-poppins font-medium text-black text-center xs:mt-16 px-8 dark:text-white pb-14'>
 										{feedbackItem.content}
 									</p>
 								</div>
