@@ -30,7 +30,7 @@ const WebNavbar = () => {
           />
         </Link>
         <motion.ul
-          className={`list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1 `}
+          className='list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1'
         >
           <Link href="/">
             <Button

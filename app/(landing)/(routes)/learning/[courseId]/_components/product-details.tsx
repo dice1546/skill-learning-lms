@@ -1,6 +1,10 @@
+import ProductMainDetails from "./product-main-details";
+
 const ProductDetails = () => {
 	return (
-		<div className="max-w-6xl mx-auto">Here you can add product details</div>
+		<div className="max-w-screen-xl mx-auto text-black dark:text-white">
+			<ProductMainDetails  course={course}/>
+		</div>
 	);
 };
 export default ProductDetails;

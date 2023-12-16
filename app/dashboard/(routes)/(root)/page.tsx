@@ -34,6 +34,11 @@ export default async function Dashboard() {
           variant="success"
        />
       </div>
+      <div>
+        <h1 className="text-2xl font-bold mt-2 dark:text-gray-200 text-black">
+          Subscribed Courses
+        </h1>
+      </div>
       <CoursesList
         items={[...coursesInProgress, ...completedCourses]}
       />

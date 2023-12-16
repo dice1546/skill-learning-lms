@@ -63,8 +63,8 @@ export const DescriptionForm = ({
   }
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
-      <div className="font-medium flex items-center justify-between">
+    <div className="mt-6 border dark:border-slate-600 bg-slate-100 dark:bg-slate-800 rounded-md p-4">
+      <div className="font-medium flex items-center justify-between text-black dark:text-gray-200">
         Course description
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
@@ -80,7 +80,7 @@ export const DescriptionForm = ({
       {!isEditing && (
         <p className={cn(
           "text-sm mt-2",
-          !initialData.description && "text-slate-500 italic"
+          !initialData.description && "text-slate-500 italic dark:text-gray-200"
         )}>
           {initialData.description || "No description"}
         </p>
@@ -101,6 +101,7 @@ export const DescriptionForm = ({
                       disabled={isSubmitting}
                       placeholder="e.g. 'This course is about...'"
                       {...field}
+                      className="dark:placeholder:text-white dark:bg-gray-700 bg-white text-black dark:focus:text-white dark:text-gray-300"
                     />
                   </FormControl>
                   <FormMessage />
@@ -111,6 +112,7 @@ export const DescriptionForm = ({
               <Button
                 disabled={!isValid || isSubmitting}
                 type="submit"
+                className="dark:bg-gray-900 dark:text-gray-200 bg-white text-black dark:focus:text-white dark:placeholder:text-gray-300"
               >
                 Save
               </Button>

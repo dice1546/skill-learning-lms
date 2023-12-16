@@ -78,13 +78,13 @@ const CourseIdPage = async ({
           label="This course is unpublished. It will not be visible to the students."
         />
       )}
-      <div className="p-6">
+      <div className="p-6 bg-white dark:bg-slate-900">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-2">
-            <h1 className="text-2xl font-medium">
+            <h1 className="text-2xl font-medium dark:text-gray-200 text-black">
               Course setup
             </h1>
-            <span className="text-sm text-slate-700">
+            <span className="text-sm text-slate-700 dark:text-slate-300">
               Complete all fields {completionText}
             </span>
           </div>
@@ -98,7 +98,7 @@ const CourseIdPage = async ({
           <div>
             <div className="flex items-center gap-x-2">
               <IconBadge icon={LayoutDashboard} />
-              <h2 className="text-xl">
+              <h2 className="text-xl dark:text-gray-200 text-black">
                 Customize your course
               </h2>
             </div>
@@ -127,7 +127,7 @@ const CourseIdPage = async ({
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={ListChecks} />
-                <h2 className="text-xl">
+                <h2 className="text-xl dark:text-gray-200 text-black">
                   Course chapters
                 </h2>
               </div>
@@ -139,7 +139,7 @@ const CourseIdPage = async ({
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={CircleDollarSign} />
-                <h2 className="text-xl">
+                <h2 className="text-xl dark:text-gray-200 text-black">
                   Sell your course
                 </h2>
               </div>
@@ -151,7 +151,7 @@ const CourseIdPage = async ({
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={File} />
-                <h2 className="text-xl">
+                <h2 className="text-xl dark:text-gray-200 text-black">
                   Resources & Attachments
                 </h2>
               </div>

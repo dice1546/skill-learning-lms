@@ -62,8 +62,8 @@ export const PriceForm = ({
   }
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
-      <div className="font-medium flex items-center justify-between">
+    <div className="mt-6 border dark:border-slate-600 bg-slate-100 dark:bg-slate-800 rounded-md p-4">
+      <div className="font-medium flex items-center justify-between text-black dark:text-gray-200">
         Course price
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
@@ -79,7 +79,7 @@ export const PriceForm = ({
       {!isEditing && (
         <p className={cn(
           "text-sm mt-2",
-          !initialData.price && "text-slate-500 italic"
+          !initialData.price && "text-slate-500 italic dark:text-gray-200"
         )}>
           {initialData.price
             ? formatPrice(initialData.price)

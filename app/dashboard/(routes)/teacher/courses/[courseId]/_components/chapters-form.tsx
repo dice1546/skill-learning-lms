@@ -86,13 +86,13 @@ export const ChaptersForm = ({
   }
 
   return (
-    <div className="relative mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="relative mt-6 border dark:border-slate-600 bg-slate-100 dark:bg-slate-800 rounded-md p-4">
       {isUpdating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-m flex items-center justify-center">
           <Loader2 className="animate-spin h-6 w-6 text-sky-700" />
         </div>
       )}
-      <div className="font-medium flex items-center justify-between">
+      <div className="font-medium flex items-center justify-between text-black dark:text-gray-200">
         Course chapters
         <Button onClick={toggleCreating} variant="ghost">
           {isCreating ? (
@@ -139,7 +139,7 @@ export const ChaptersForm = ({
       {!isCreating && (
         <div className={cn(
           "text-sm mt-2",
-          !initialData.chapters.length && "text-slate-500 italic"
+          !initialData.chapters.length && "text-slate-500 dark:text-gray-200 italic"
         )}>
           {!initialData.chapters.length && "No chapters"}
           <ChaptersList
@@ -150,7 +150,7 @@ export const ChaptersForm = ({
         </div>
       )}
       {!isCreating && (
-        <p className="text-xs text-muted-foreground mt-4">
+        <p className="text-xs text-muted-foreground mt-4 text-black dark:text-gray-200">
           Drag and drop to reorder the chapters
         </p>
       )}

@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div>
+    <div className="bg-white dark:bg-slate-900">
       <div className="flex items-center py-4 justify-between">
         <Input
           placeholder="Filter courses..."
@@ -62,16 +62,16 @@ export function DataTable<TData, TValue>({
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-sm dark:bg-gray-700 bg-white text-black dark:focus:text-white dark:placeholder:text-white"
         />
         <Link href="/dashboard/teacher/create">
-          <Button>
+          <Button className="dark:bg-black border dark:text-white bg-black text-white">
             <PlusCircle className="h-4 w-4 mr-2" />
             New course
           </Button>
         </Link>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md dark:border-slate-600 border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

@@ -50,10 +50,10 @@ const CreatePage = () => {
   return ( 
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
-        <h1 className="text-2xl">
+        <h1 className="text-2xl dark:text-gray-200 text-black">
           Name your course
         </h1>
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-slate-600 dark:text-gray-200 mt-2">
           What would you like to name your course? Don&apos;t worry, you can change this later.
         </p>
         <Form {...form}>
@@ -74,6 +74,7 @@ const CreatePage = () => {
                       disabled={isSubmitting}
                       placeholder="e.g. 'Advanced web development'"
                       {...field}
+                      className="dark:bg-gray-700 bg-white text-black dark:focus:text-white dark:placeholder:text-gray-300"
                     />
                   </FormControl>
                   <FormDescription>
@@ -84,10 +85,11 @@ const CreatePage = () => {
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Link href="/">
+              <Link href="/dashboard/teacher/courses">
                 <Button
                   type="button"
                   variant="ghost"
+                  className="dark:bg-gray-700 dark:text-gray-400 bg-white text-black dark:focus:text-white dark:placeholder:text-gray-300"
                 >
                   Cancel
                 </Button>
@@ -95,6 +97,7 @@ const CreatePage = () => {
               <Button
                 type="submit"
                 disabled={!isValid || isSubmitting}
+                className="dark:bg-black border dark:text-white bg-black text-white"
               >
                 Continue
               </Button>
