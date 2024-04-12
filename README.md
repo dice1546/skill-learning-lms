@@ -18,7 +18,7 @@ Welcome to our Skill Learning LMS (Learning Management System) Platform! This pl
 - **React.js**: Build dynamic user interfaces with React.js for a seamless browsing experience.
 - **Tailwind CSS**: Create custom, responsive designs efficiently with Tailwind CSS.
 - **Express.js**: Develop a robust backend server using Express.js for handling requests and managing data.
-- **MongoDB**: Store and manage application data in a MongoDB database for scalability and flexibility.
+- **MySQL**: Online managed planetscale MySQL database.
 
 ## Getting Started
 
