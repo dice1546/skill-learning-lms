@@ -31,7 +31,7 @@ const Hero = dynamic(
 
 const LandingPage = () => {
   return (
-    <div className="bg-white dark:bg-black overflow-hidden">
+    <div className="bg-white h-screen dark:bg-black overflow-hidden">
       <div>
         <WebNavbar />
       </div>
