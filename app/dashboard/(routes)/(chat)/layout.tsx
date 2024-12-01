@@ -1,8 +1,26 @@
 "use client";
-import { Toaster } from 'react-hot-toast';
-import { Providers } from '@/components/provider';
-import { Header } from '@/components/chatbot/header';
-import { TailwindIndicator } from '@/components/chatbot/tailwind-indicator';
+
+import dynamic from 'next/dynamic';
+// import { Toaster } from 'react-hot-toast';
+// import { Providers } from '@/components/provider';
+// import { Header } from '@/components/chatbot/header';
+// import { TailwindIndicator } from '@/components/chatbot/tailwind-indicator';
+
+const Toaster = dynamic(() => 
+ import('react-hot-toast').then(mod => mod.Toaster)
+);
+
+const Providers = dynamic(() => 
+ import('@/components/provider').then(mod => mod.Providers)
+);
+
+const Header = dynamic(() => 
+ import('@/components/chatbot/header').then(mod => mod.Header)
+);
+
+const TailwindIndicator = dynamic(() => 
+ import('@/components/chatbot/tailwind-indicator').then(mod => mod.TailwindIndicator)
+);
 
 interface RootLayoutProps {
 	children: React.ReactNode

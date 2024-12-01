@@ -1,9 +1,12 @@
 import { getCourses } from "@/actions/get-courses";
-import { CoursesList } from "@/components/courses-list";
 import { auth } from "@clerk/nextjs";
+import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 import React from "react";
 
+const CoursesList = dynamic(() => 
+ import('@/components/courses-list').then(mod => mod.CoursesList)
+);
 interface LanguageProps {
   categoryId: string | null;
 }

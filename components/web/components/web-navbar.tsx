@@ -32,7 +32,7 @@ const WebNavbar = () => {
         <motion.ul
           className='list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1'
         >
-          <Link href="https://creativnerds.com/learn">
+          <Link target="_blank" href="https://creativnerds.com/learn">
             <Button
               variant="ghost"
               className="border text-black dark:text-white ml-3 mr-3"
@@ -40,7 +40,7 @@ const WebNavbar = () => {
               Courses
             </Button>
           </Link>
-          <Link href="https://creativnerds.com/learn">
+          <Link  target="_blank" href="https://creativnerds.com/learn">
             <Button
               variant="ghost"
               className="border text-black dark:text-white ml-3 mr-3"

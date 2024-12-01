@@ -1,12 +1,22 @@
+import dynamic from "next/dynamic";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
-import { SearchInput } from "@/components/search-input";
 import { getCourses } from "@/actions/get-courses";
-import { CoursesList } from "@/components/courses-list";
 
-import { Categories } from "./_components/categories";
+
+const Categories = dynamic(() => 
+  import('./_components/categories').then(mod => mod.Categories)
+ );
+ 
+ const CoursesList = dynamic(() => 
+  import('@/components/courses-list').then(mod => mod.CoursesList)
+ );
+ 
+ const SearchInput = dynamic(() => 
+  import('@/components/search-input').then(mod => mod.SearchInput)
+ );
 
 interface SearchPageProps {
   searchParams: {

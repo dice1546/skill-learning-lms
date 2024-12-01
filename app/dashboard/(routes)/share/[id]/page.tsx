@@ -1,10 +1,18 @@
+import dynamic from 'next/dynamic';
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { formatDate } from '@/lib/utils'
 import { getSharedChat } from '@/actions/chat-actions' 
-import { ChatList } from '@/components/chatbot/chat-list'
-import { FooterText } from '@/components/chatbot/footer'
+
+
+const ChatList = dynamic(() => 
+ import('@/components/chatbot/chat-list').then(mod => mod.ChatList)
+);
+
+const FooterText = dynamic(() => 
+ import('@/components/chatbot/footer').then(mod => mod.FooterText)
+);
 
 export const runtime = 'edge'
 export const preferredRegion = 'home'

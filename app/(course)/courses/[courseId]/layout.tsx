@@ -4,8 +4,17 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { getProgress } from "@/actions/get-progress";
 
-import { CourseSidebar } from "./_components/course-sidebar";
-import { CourseNavbar } from "./_components/course-navbar";
+import dynamic from 'next/dynamic'
+
+const CourseSidebar = dynamic(() => 
+  import('./_components/course-sidebar').then(mod => mod.CourseSidebar), {
+    loading: () => <div>Loading sidebar...</div> // Optional loading component
+})
+
+const CourseNavbar = dynamic(() => 
+  import('./_components/course-navbar').then(mod => mod.CourseNavbar), {
+    loading: () => <div>Loading navbar...</div> // Optional loading component
+})
 
 const CourseLayout = async ({
   children,

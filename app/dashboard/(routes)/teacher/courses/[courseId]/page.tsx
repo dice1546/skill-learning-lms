@@ -1,19 +1,49 @@
+import dynamic from 'next/dynamic';
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { CircleDollarSign, File, LayoutDashboard, ListChecks } from "lucide-react";
 
 import { db } from "@/lib/db";
-import { IconBadge } from "@/components/icon-badge";
-import { Banner } from "@/components/banner";
 
-import { TitleForm } from "./_components/title-form";
-import { DescriptionForm } from "./_components/description-form";
-import { ImageForm } from "./_components/image-form";
-import { CategoryForm } from "./_components/category-form";
-import { PriceForm } from "./_components/price-form";
-import { AttachmentForm } from "./_components/attachment-form";
-import { ChaptersForm } from "./_components/chapters-form";
-import { Actions } from "./_components/actions";
+const IconBadge = dynamic(() => 
+ import('@/components/icon-badge').then(mod => mod.IconBadge)
+);
+
+const Banner = dynamic(() => 
+ import('@/components/banner').then(mod => mod.Banner)
+);
+
+const TitleForm = dynamic(() => 
+ import('./_components/title-form').then(mod => mod.TitleForm)
+);
+
+const DescriptionForm = dynamic(() => 
+ import('./_components/description-form').then(mod => mod.DescriptionForm)
+);
+
+const ImageForm = dynamic(() => 
+ import('./_components/image-form').then(mod => mod.ImageForm)
+);
+
+const CategoryForm = dynamic(() => 
+ import('./_components/category-form').then(mod => mod.CategoryForm)
+);
+
+const PriceForm = dynamic(() => 
+ import('./_components/price-form').then(mod => mod.PriceForm)
+);
+
+const AttachmentForm = dynamic(() => 
+ import('./_components/attachment-form').then(mod => mod.AttachmentForm)
+);
+
+const ChaptersForm = dynamic(() => 
+ import('./_components/chapters-form').then(mod => mod.ChaptersForm)
+);
+
+const Actions = dynamic(() => 
+ import('./_components/actions').then(mod => mod.Actions)
+);
 
 const CourseIdPage = async ({
   params

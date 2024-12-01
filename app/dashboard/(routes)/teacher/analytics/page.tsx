@@ -1,10 +1,18 @@
+import dynamic from 'next/dynamic';
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { getAnalytics } from "@/actions/get-analytics";
 
-import { DataCard } from "./_components/data-card";
-import { Chart } from "./_components/chart";
+
+
+const DataCard = dynamic(() => 
+ import('./_components/data-card').then(mod => mod.DataCard)
+);
+
+const Chart = dynamic(() => 
+ import('./_components/chart').then(mod => mod.Chart)
+);
 
 const AnalyticsPage = async () => {
   const { userId } = auth();

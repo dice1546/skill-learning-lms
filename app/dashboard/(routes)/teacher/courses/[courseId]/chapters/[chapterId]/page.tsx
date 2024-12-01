@@ -1,17 +1,33 @@
+import dynamic from 'next/dynamic'
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 
 import { db } from "@/lib/db";
-import { IconBadge } from "@/components/icon-badge";
-import { Banner } from "@/components/banner";
 
-import { ChapterTitleForm } from "./_components/chapter-title-form";
-import { ChapterDescriptionForm } from "./_components/chapter-description-form";
-import { ChapterAccessForm } from "./_components/chapter-access-form";
-import { ChapterVideoForm } from "./_components/chapter-video-form";
-import { ChapterActions } from "./_components/chapter-actions";
+
+const IconBadge = dynamic(() => 
+ import("@/components/icon-badge").then(mod => mod.IconBadge)
+)
+const Banner = dynamic(() => 
+ import("@/components/banner").then(mod => mod.Banner)
+)
+const ChapterTitleForm = dynamic(() => 
+ import("./_components/chapter-title-form").then(mod => mod.ChapterTitleForm)
+)
+const ChapterDescriptionForm = dynamic(() => 
+ import("./_components/chapter-description-form").then(mod => mod.ChapterDescriptionForm)
+)
+const ChapterAccessForm = dynamic(() => 
+ import("./_components/chapter-access-form").then(mod => mod.ChapterAccessForm)
+)
+const ChapterVideoForm = dynamic(() => 
+ import("./_components/chapter-video-form").then(mod => mod.ChapterVideoForm)
+)
+const ChapterActions = dynamic(() => 
+ import("./_components/chapter-actions").then(mod => mod.ChapterActions)
+)
 
 const ChapterIdPage = async ({
   params

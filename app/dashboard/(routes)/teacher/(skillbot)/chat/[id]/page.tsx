@@ -1,9 +1,13 @@
+import dynamic from 'next/dynamic';
 import { type Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs'
-import { Chat } from '@/components/chatbot/Chat'
 import { getChat } from '@/actions/chat-actions' 
- 
+
+
+const Chat = dynamic(() => 
+ import('@/components/chatbot/Chat').then(mod => mod.Chat)
+);
 export const runtime = 'edge'
 export const preferredRegion = 'home'
 

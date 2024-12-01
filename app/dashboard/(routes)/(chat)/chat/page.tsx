@@ -1,5 +1,10 @@
+import dynamic from 'next/dynamic';
+
+const Chat = dynamic(() => 
+ import('@/components/chatbot/Chat').then(mod => mod.Chat)
+);
 import { nanoid } from '@/lib/utils';
-import { Chat } from '@/components/chatbot/Chat';
+
 
 export const runtime = 'edge';
 

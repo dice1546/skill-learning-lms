@@ -1,26 +1,50 @@
+import dynamic from "next/dynamic";
+
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { File } from "lucide-react";
 
 import { getChapter } from "@/actions/get-chapter";
-import { Banner } from "@/components/banner";
-import { Separator } from "@/components/ui/separator";
-import { Preview } from "@/components/preview";
 
-import { VideoPlayer } from "./_components/video-player";
-import { CourseEnrollButton } from "./_components/course-enroll-button";
-import { CourseProgressButton } from "./_components/course-progress-button";
+
+const VideoPlayer = dynamic(() =>
+  import("./_components/video-player").then((mod) => mod.VideoPlayer)
+);
+
+const CourseEnrollButton = dynamic(() =>
+  import("./_components/course-enroll-button").then(
+    (mod) => mod.CourseEnrollButton
+  )
+);
+
+const CourseProgressButton = dynamic(() =>
+  import("./_components/course-progress-button").then(
+    (mod) => mod.CourseProgressButton
+  )
+);
+
+const Banner = dynamic(() =>
+  import("@/components/banner").then((mod) => mod.Banner)
+);
+
+const Separator = dynamic(() =>
+  import("@/components/ui/separator").then((mod) => mod.Separator)
+);
+
+const Preview = dynamic(() =>
+  import("@/components/preview").then((mod) => mod.Preview)
+);
 
 const ChapterIdPage = async ({
-  params
+  params,
 }: {
-  params: { courseId: string; chapterId: string }
+  params: { courseId: string; chapterId: string };
 }) => {
   const { userId } = auth();
-  
+
   if (!userId) {
     return redirect("/dashboard");
-  } 
+  }
 
   const {
     chapter,
@@ -37,20 +61,16 @@ const ChapterIdPage = async ({
   });
 
   if (!chapter || !course) {
-    return redirect("/dashboard")
+    return redirect("/dashboard");
   }
-
 
   const isLocked = !chapter.isFree && !purchase;
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
-  return ( 
+  return (
     <div className="bg-white dark:bg-slate-900">
       {userProgress?.isCompleted && (
-        <Banner
-          variant="success"
-          label="You already completed this chapter."
-        />
+        <Banner variant="success" label="You already completed this chapter." />
       )}
       {isLocked && (
         <Banner
@@ -89,25 +109,23 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
-          <Separator className="text-slate-700 dark:text-slate-600"/>
+          <Separator className="text-slate-700 dark:text-slate-600" />
           <div className="text-black dark:text-white">
             <Preview value={chapter.description!} />
           </div>
           {!!attachments.length && (
             <>
-              <Separator className="text-slate-700 dark:text-slate-600"/>
+              <Separator className="text-slate-700 dark:text-slate-600" />
               <div className="p-4">
                 {attachments.map((attachment) => (
-                  <a 
+                  <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
                     className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline"
                   >
                     <File />
-                    <p className="line-clamp-1">
-                      {attachment.name}
-                    </p>
+                    <p className="line-clamp-1">{attachment.name}</p>
                   </a>
                 ))}
               </div>
@@ -116,7 +134,7 @@ const ChapterIdPage = async ({
         </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default ChapterIdPage;

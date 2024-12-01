@@ -1,11 +1,18 @@
+import dynamic from 'next/dynamic';
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation";
 import { CheckCircle, Clock } from "lucide-react";
 
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
-import { CoursesList } from "@/components/courses-list";
 
-import { InfoCard } from "./_components/info-card";
+
+const CoursesList = dynamic(() => 
+ import('@/components/courses-list').then(mod => mod.CoursesList)
+);
+
+const InfoCard = dynamic(() => 
+ import('./_components/info-card').then(mod => mod.InfoCard)
+);
 
 export default async function Dashboard() {
   const { userId } = auth();
