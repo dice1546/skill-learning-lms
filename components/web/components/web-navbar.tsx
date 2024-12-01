@@ -24,7 +24,7 @@ const WebNavbar = () => {
           <Image
             height={90}
             width={200}
-            src="/skillustad.png"
+            src="/nerd.png"
             alt="search"
             className="mt-3 z-50 cursor-pointer object-contain"
           />
@@ -32,23 +32,7 @@ const WebNavbar = () => {
         <motion.ul
           className='list-none sm:flex md:flex hidden justify-end px-5 items-center flex-1'
         >
-          <Link href="/">
-            <Button
-              variant="ghost"
-              className="border text-black dark:text-white ml-3 mr-3"
-            >
-              Home
-            </Button>
-          </Link>
-          <Link href="/about">
-            <Button
-              variant="ghost"
-              className="border text-black dark:text-white ml-3 mr-3"
-            >
-              About Us
-            </Button>
-          </Link>
-          <Link href="/learning">
+          <Link href="https://creativnerds.com/learn">
             <Button
               variant="ghost"
               className="border text-black dark:text-white ml-3 mr-3"
@@ -56,20 +40,12 @@ const WebNavbar = () => {
               Courses
             </Button>
           </Link>
-          <Link href="/pricing">
+          <Link href="https://creativnerds.com/learn">
             <Button
               variant="ghost"
               className="border text-black dark:text-white ml-3 mr-3"
             >
               Pricing
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button
-              variant="ghost"
-              className="border text-black dark:text-white ml-3 mr-3"
-            >
-              Contact
             </Button>
           </Link>
           <Link href="/dashboard" className="ml-3 mr-3">
@@ -109,34 +85,16 @@ const WebNavbar = () => {
             } p-16 bg-white dark:bg-black absolute top-20 right-0 mx-4 my-2 min-w-[180px] rounded-2xl z-30 shadow-2xl border border-slate-600 dark:border-slate-200 sidebar`}
           >
             <ul className="list-none flex flex-col justify-end items-center flex-1">
-              <Link href="/">
-                <Button variant="ghost" className="mb-2 text-black dark:text-white">
-                  Home
-                </Button>
-              </Link>
-              <Separator />
-
-              <Link href="/about">
+            
+              <Link href="https://creativnerds.com/learn">
                 <Button variant="ghost" className="mb-2 mt-2 text-black dark:text-white">
                   About Us
                 </Button>
               </Link>
               <Separator />
-              <Link href="/contact">
+              <Link href="https://creativnerds.com/learn">
                 <Button variant="ghost" className="mb-2 mt-2 text-black dark:text-white">
                   Courses
-                </Button>
-              </Link>
-              <Separator />
-              <Link href="/contact">
-                <Button variant="ghost" className="mb-2 mt-2 text-black dark:text-white">
-                  Prices
-                </Button>
-              </Link>
-              <Separator />
-              <Link href="/contact">
-                <Button variant="ghost" className="mb-2 mt-2 text-black dark:text-white">
-                  Contact
                 </Button>
               </Link>
               <Separator />

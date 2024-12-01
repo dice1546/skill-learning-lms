@@ -27,7 +27,7 @@ const Hero = () => {
             variants={textVariant2("left", "tween", 0.4, 0.5)}
             className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
           >
-            Welcome to SkillUstad, where we believe in the power of learning to
+            Welcome to Courses offered by CreativNerds, where we believe in the power of learning to
             transform lives. Whether you are a tech enthusiast, aspiring
             entrepreneur, or looking to upskill, our digital training programs
             are tailored to meet your aspirations.
