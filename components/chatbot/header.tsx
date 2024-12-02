@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { currentUser } from "@clerk/nextjs";
 import {  useUser } from '@clerk/nextjs';
 import { collection, orderBy, query } from "firebase/firestore";
 import {useCollection} from "react-firebase-hooks/firestore";

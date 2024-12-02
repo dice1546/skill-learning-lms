@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import { type Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { auth } from '@clerk/nextjs'
 import { getChat } from '@/actions/chat-actions' 
+import { auth } from '@clerk/nextjs/server';
 
 
 const Chat = dynamic(() => 

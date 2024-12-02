@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
 
-import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { File } from "lucide-react";
 
 import { getChapter } from "@/actions/get-chapter";
+import { auth } from "@clerk/nextjs/server";
 
 
 const VideoPlayer = dynamic(() =>

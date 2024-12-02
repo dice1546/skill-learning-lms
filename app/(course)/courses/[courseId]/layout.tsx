@@ -1,10 +1,11 @@
-import { auth } from "@clerk/nextjs";
+
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
 import { getProgress } from "@/actions/get-progress";
 
 import dynamic from 'next/dynamic'
+import { auth } from "@clerk/nextjs/server";
 
 const CourseSidebar = dynamic(() => 
   import('./_components/course-sidebar').then(mod => mod.CourseSidebar), {

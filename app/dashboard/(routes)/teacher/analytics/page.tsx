@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { getAnalytics } from "@/actions/get-analytics";
+import { auth } from '@clerk/nextjs/server';
 
 
 

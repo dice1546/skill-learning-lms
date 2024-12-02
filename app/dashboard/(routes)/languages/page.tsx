@@ -1,5 +1,5 @@
 import { getCourses } from "@/actions/get-courses";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 import React from "react";

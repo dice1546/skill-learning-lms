@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
-import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation";
 import { CheckCircle, Clock } from "lucide-react";
 
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
+import { auth } from '@clerk/nextjs/server';
 
 
 const CoursesList = dynamic(() => 

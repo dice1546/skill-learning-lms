@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
-import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
 import { getCourses } from "@/actions/get-courses";
+import { auth } from "@clerk/nextjs/server";
 
 
 const Categories = dynamic(() => 
@@ -68,7 +68,6 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 
 export default SearchPage;
 
-// import { auth } from "@clerk/nextjs";
 // import { redirect } from "next/navigation";
 
 // import { db } from "@/lib/db";

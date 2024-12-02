@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { Chapter, Course } from "@prisma/client";
 import { auth } from "firebase-admin";
+import Image from "next/image";
 import React from "react";
 
 interface WebCourseDetailsProps {
@@ -285,10 +286,12 @@ const ProductMainDetails = async ({
                     ></path>
                   </svg>
                 </a>
-                <img
+                <Image
                   className="object-cover w-full lg:h-1/2"
                   src="https://i.postimg.cc/prW7DGkK/R-14.png"
                   alt=""
+                  height={200}
+                  width={200}
                 />
                 <a
                   className="absolute right-0 transform lg:mr-2 top-1/2 translate-1/2"

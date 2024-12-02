@@ -1,9 +1,8 @@
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { Configuration, OpenAIApi } from 'openai-edge';
 import { nanoid } from '@/lib/utils';
-import { getAuth } from '@clerk/nextjs/server';
+import { clerkClient, getAuth } from '@clerk/nextjs/server';
 import { NextRequest } from 'next/server';
-import { clerkClient } from '@clerk/nextjs';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import {database} from "@/firebase";
 

@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic'
-import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 
 import { db } from "@/lib/db";
+import { auth } from '@clerk/nextjs/server';
 
 
 const IconBadge = dynamic(() => 

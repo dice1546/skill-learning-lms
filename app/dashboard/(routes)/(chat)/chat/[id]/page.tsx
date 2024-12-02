@@ -1,11 +1,11 @@
 import { type Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { auth } from '@clerk/nextjs'
 const Chat = dynamic(() => 
  import('@/components/chatbot/Chat').then(mod => mod.Chat)
 );
 import { getChat } from '@/actions/chat-actions' 
 import dynamic from 'next/dynamic';
+import { auth } from '@clerk/nextjs/server';
  
 export const runtime = 'edge'
 export const preferredRegion = 'home'

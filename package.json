@@ -17,7 +17,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.26.2",
+    "@clerk/nextjs": "^5.2.12",
     "@hello-pangea/dnd": "^16.3.0",
     "@hookform/resolvers": "^3.3.1",
     "@mux/mux-node": "^7.3.1",
@@ -81,6 +81,7 @@
     "rehype-mathjax": "^5.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "sharp": "^0.33.5",
     "stripe": "^13.6.0",
     "swiper": "^11.0.3",
     "tailwind-merge": "^1.14.0",
